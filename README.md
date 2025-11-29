@@ -2,22 +2,22 @@
 
 A full-stack web application for managing employee leave requests with role-based access control. Built with the MERN stack (MongoDB, Express, React, Node.js) and Redux Toolkit for state management.
 
-## 🚀 Features
+##  Features
 
 ### Employee Features
-- ✅ User Registration & Login with JWT Authentication
-- ✅ Apply for Leave (Sick Leave, Casual Leave, Vacation Leave)
-- ✅ View Leave Balance
-- ✅ View My Leave Requests
-- ✅ Cancel Pending Leave Requests
-- ✅ Employee Dashboard with Statistics
+-  User Registration & Login with JWT Authentication
+-  Apply for Leave (Sick Leave, Casual Leave, Vacation Leave)
+-  View Leave Balance
+-  View My Leave Requests
+-  Cancel Pending Leave Requests
+-  Employee Dashboard with Statistics
 
 ### Manager Features
-- ✅ Manager Login
-- ✅ View All Pending Leave Requests
-- ✅ Approve/Reject Leave Requests with Comments
-- ✅ View All Leave Requests (History)
-- ✅ Manager Dashboard with Team Statistics
+-  Manager Login
+-  View All Pending Leave Requests
+-  Approve/Reject Leave Requests with Comments
+-  View All Leave Requests (History)
+-  Manager Dashboard with Team Statistics
 
 ## 🛠️ Tech Stack
 
@@ -39,7 +39,7 @@ A full-stack web application for managing employee leave requests with role-base
 - **bcrypt** - Password Hashing
 - **dotenv** - Environment Variables
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Tap_Assesment-1/
@@ -106,14 +106,14 @@ Tap_Assesment-1/
 └── README.md
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 - **Node.js** (v14 or higher)
 - **npm** or **yarn**
 - **MongoDB** (local installation or MongoDB Atlas account)
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -168,7 +168,7 @@ Edit `.env` and update the API URL:
 VITE_API_URL=http://localhost:5000/api
 ```
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Start Backend Server
 
@@ -223,7 +223,7 @@ The frontend will run on `http://localhost:5173` (or the port shown in terminal)
 | GET | `/api/dashboard/employee` | Employee dashboard stats | Employee |
 | GET | `/api/dashboard/manager` | Manager dashboard stats | Manager |
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### User Model
 
@@ -257,13 +257,13 @@ The frontend will run on `http://localhost:5173` (or the port shown in terminal)
 }
 ```
 
-## 🔐 Authentication & Authorization
+## Authentication & Authorization
 
 - **JWT Tokens**: Used for authentication, stored in localStorage
 - **Role-Based Access**: Middleware checks user role before allowing access
 - **Password Hashing**: bcrypt with salt rounds for secure password storage
 
-## 🎨 UI Features
+## UI Features
 
 - **Responsive Design**: Works on desktop, tablet, and mobile
 - **Clean Dashboard**: Statistics cards and quick actions
@@ -271,7 +271,7 @@ The frontend will run on `http://localhost:5173` (or the port shown in terminal)
 - **Form Validation**: Client-side validation for leave applications
 - **Toast Notifications**: User-friendly success/error messages
 
-## 🧪 Testing the Application
+## Testing the Application
 
 ### Create Test Users
 
@@ -294,7 +294,7 @@ The frontend will run on `http://localhost:5173` (or the port shown in terminal)
    - Approve/Reject requests with comments
    - View all requests history
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Backend Issues
 
@@ -308,7 +308,7 @@ The frontend will run on `http://localhost:5173` (or the port shown in terminal)
 - **CORS Errors**: Ensure backend CORS is configured correctly
 - **Build Errors**: Clear `node_modules` and reinstall dependencies
 
-## 📝 Environment Variables
+## Environment Variables
 
 ### Backend (.env)
 
@@ -325,7 +325,7 @@ JWT_EXPIRE=7d
 VITE_API_URL=http://localhost:5000/api
 ```
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Backend
 
@@ -340,11 +340,11 @@ VITE_API_URL=http://localhost:5000/api
 2. Serve the `dist` folder using a static file server
 3. Update `VITE_API_URL` to production API URL
 
-## 📄 License
+## License
 
 This project is created for assessment purposes.
 
-## 👨‍💻 Developer Notes
+## Developer Notes
 
 - All API responses follow RESTful conventions
 - Error handling is implemented at both frontend and backend
@@ -354,6 +354,6 @@ This project is created for assessment purposes.
 
 ---
 
-**Built with ❤️ using MERN Stack**
+**Built with using MERN Stack**
 
 
