@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 ease-in-out;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-md border border-slate-200 hover:bg-slate-50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 ease-in-out;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 ease-in-out;
+  }
+  
+  .card-hover {
+    @apply hover:scale-[1.02] hover:-translate-y-1;
+  }
+}
+
+/* FullCalendar Custom Styles */
+.fc-custom {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.fc-custom .fc-header-toolbar {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(226 232 240);
+}
+
+.fc-custom .fc-button {
+  @apply bg-white border-slate-300 text-slate-700 font-semibold rounded-lg px-4 py-2 hover:bg-slate-50 transition-colors;
+}
+
+.fc-custom .fc-button-primary:not(:disabled):active,
+.fc-custom .fc-button-primary:not(:disabled).fc-button-active {
+  @apply bg-blue-600 text-white border-blue-600;
+}
+
+.fc-custom .fc-button-primary:not(:disabled):hover {
+  @apply bg-slate-100;
+}
+
+.fc-custom .fc-button-primary:not(:disabled):active:hover,
+.fc-custom .fc-button-primary:not(:disabled).fc-button-active:hover {
+  @apply bg-blue-700;
+}
+
+.fc-custom .fc-today-button {
+  @apply bg-blue-600 text-white border-blue-600 hover:bg-blue-700;
+}
+
+.fc-custom .fc-daygrid-day {
+  @apply border-slate-200;
+}
+
+.fc-custom .fc-daygrid-day-top {
+  @apply text-slate-700 font-medium;
+}
+
+.fc-custom .fc-col-header-cell {
+  @apply bg-slate-50 border-slate-200 py-3;
+}
+
+.fc-custom .fc-col-header-cell-cushion {
+  @apply text-slate-700 font-semibold text-sm uppercase tracking-wide;
+}
+
+.fc-custom .fc-daygrid-event {
+  @apply rounded-lg px-2 py-1 text-xs font-medium cursor-pointer transition-opacity;
+  border: none !important;
+}
+
+.fc-custom .fc-daygrid-event:hover {
+  @apply opacity-90;
+}
+
+.fc-custom .fc-daygrid-day-number {
+  @apply text-slate-700 font-medium p-2;
+}
+
+.fc-custom .fc-day-today {
+  @apply bg-blue-50;
+}
+
+.fc-custom .fc-day-today .fc-daygrid-day-number {
+  @apply text-blue-600 font-bold;
+}
+
+
+

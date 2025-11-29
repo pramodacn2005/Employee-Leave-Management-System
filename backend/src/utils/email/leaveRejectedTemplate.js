@@ -1,0 +1,137 @@
+/**
+ * Email template for employee when leave is rejected
+ */
+export const leaveRejectedTemplate = (leaveData) => {
+  const { employeeName, leaveType, startDate, endDate, totalDays, reason, managerComment, managerName } = leaveData;
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  const formatLeaveType = (type) => {
+    return type
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/^./, (str) => str.toUpperCase())
+      .trim();
+  };
+
+  const leaveTypeFormatted = formatLeaveType(leaveType);
+
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Request Rejected</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f8fafc; padding: 40px 20px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 40px 30px; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">Employee Leave Manager</h1>
+              <p style="margin: 8px 0 0 0; color: #fee2e2; font-size: 14px;">Leave Request Update</p>
+            </td>
+          </tr>
+          
+          <!-- Content -->
+          <tr>
+            <td style="padding: 40px 30px;">
+              <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 24px; font-weight: 600;">Hello ${employeeName},</h2>
+              <p style="margin: 0 0 30px 0; color: #64748b; font-size: 16px; line-height: 1.6;">
+                We regret to inform you that your leave request has been <strong style="color: #ef4444;">rejected</strong> by ${managerName || 'your manager'}.
+              </p>
+
+              <!-- Status Badge -->
+              <div style="background-color: #fee2e2; color: #ef4444; padding: 12px 20px; border-radius: 8px; margin-bottom: 30px; text-align: center;">
+                <span style="font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">✗ Status: REJECTED</span>
+              </div>
+
+              <!-- Leave Details Card -->
+              <div style="background-color: #f8fafc; border-radius: 8px; padding: 24px; margin-bottom: 30px; border: 1px solid #e2e8f0;">
+                <h3 style="margin: 0 0 20px 0; color: #1e293b; font-size: 18px; font-weight: 600;">Leave Details</h3>
+                
+                <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 12px 0; color: #64748b; font-size: 14px; font-weight: 500; width: 140px;">Leave Type:</td>
+                    <td style="padding: 12px 0; color: #1e293b; font-size: 14px; font-weight: 600;">${leaveTypeFormatted}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #64748b; font-size: 14px; font-weight: 500;">Start Date:</td>
+                    <td style="padding: 12px 0; color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(startDate)}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #64748b; font-size: 14px; font-weight: 500;">End Date:</td>
+                    <td style="padding: 12px 0; color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(endDate)}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #64748b; font-size: 14px; font-weight: 500;">Total Days:</td>
+                    <td style="padding: 12px 0; color: #1e293b; font-size: 14px; font-weight: 600;">${totalDays} day${totalDays !== 1 ? 's' : ''}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #64748b; font-size: 14px; font-weight: 500; vertical-align: top;">Reason:</td>
+                    <td style="padding: 12px 0; color: #1e293b; font-size: 14px; line-height: 1.6;">${reason}</td>
+                  </tr>
+                </table>
+              </div>
+
+              ${managerComment ? `
+              <!-- Manager Comment (Rejection Reason) -->
+              <div style="background-color: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+                <p style="margin: 0 0 8px 0; color: #991b1b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Rejection Reason</p>
+                <p style="margin: 0; color: #1e293b; font-size: 14px; line-height: 1.6;">${managerComment}</p>
+              </div>
+              ` : `
+              <div style="background-color: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+                <p style="margin: 0; color: #991b1b; font-size: 14px; line-height: 1.6;">
+                  <strong>Note:</strong> Please contact your manager for more details about this rejection.
+                </p>
+              </div>
+              `}
+
+              <!-- CTA Button -->
+              <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+                <tr>
+                  <td align="center">
+                    <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/employee/requests" 
+                       style="display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);">
+                      View Dashboard
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0; color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                If you have any questions or concerns, please reach out to your manager.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+              <p style="margin: 0 0 10px 0; color: #64748b; font-size: 14px;">
+                This is an automated email from Employee Leave Management System.
+              </p>
+              <p style="margin: 0; color: #94a3b8; font-size: 12px;">
+                Please do not reply to this email.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `;
+};
+
